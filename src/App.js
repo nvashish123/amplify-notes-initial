@@ -2,19 +2,19 @@ import React, { Component } from "react";
 
 class App extends Component {
   state = {
-    Note: "",
+    note: "",
     notes: []
   };
 
-  handleChangeNote = event => this.setState({ Note: event.target.value });
+  handleChangeNote = event => this.setState({ note: event.target.value });
   handleAddNote = async event => {
     event.preventDefault();
-    const { Note, notes } = this.state;
-    const input = { Note };
+    const { note, notes } = this.state;
+    const input = { note };
   };
 
   render() {
-    const { notes, Note } = this.state;
+    const { notes, note } = this.state;
     return (
       <div className="flex flex-column items-center justify-center pa3 bg-washed-red">
         <h1 className="code f2-l">AWS Amplify App</h1>
@@ -26,7 +26,7 @@ class App extends Component {
             className="pa2 f4"
             placeholder="enter note"
             onChange={this.handleChangeNote}
-            value={Note}
+            value={note}
           />
           <button type="submit" className="pa2 f4">
             Add Note
@@ -36,7 +36,7 @@ class App extends Component {
         <div>
           {notes.map(item => (
             <div key={item.id} className="flex items-center">
-              <li className="list pa1 f3">{item.Note}</li>
+              <li className="list pa1 f3">{item.note}</li>
               {/* <button className="bg-tranparent bn f4">
                  <span>&times;</span> 
               </button>*/}
