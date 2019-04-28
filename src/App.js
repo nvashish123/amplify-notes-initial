@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { withAuthenticator } from "aws-amplify-react";
 
 class App extends Component {
   state = {
@@ -49,4 +48,4 @@ class App extends Component {
   }
 }
 
-export default withAuthenticator(App, { includeGreetings: true });
+export default App;
