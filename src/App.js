@@ -6,6 +6,11 @@ class App extends Component {
     notes: []
   };
 
+ // async componentDidMount() {
+  //   const result = await API.graphql(graphqlOperation(listNotes));
+  //   this.setState({ notes: result.data.listNotes.items });
+  // }
+
   handleChangeNote = event => this.setState({ note: event.target.value });
   handleAddNote = async event => {
     event.preventDefault();
