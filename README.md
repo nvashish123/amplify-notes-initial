@@ -7,6 +7,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - git clone this repo to your local environment
 - cd into the folder and do npm i -g create-react-app @aws-amplify/cli
 - amplify configure : this command will configure amplify on your environment, and its a one-time setup, unless you want to change some configuration
+- Follow the instructions to understand the changes being made in this starter app
+- Find the final app with all the changes here - 
 
 ## Available Scripts
 
