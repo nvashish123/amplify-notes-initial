@@ -24,6 +24,7 @@ Edit index.js:
 
 ###
 `import Amplify from "aws-amplify";`
+
 `import aws_exports from "./aws-exports";`
 
 `Amplify.configure(aws_exports);`
@@ -31,8 +32,9 @@ Edit index.js:
 
 Edit App.js:
 
-import { withAuthenticator } from "aws-amplify-react";
-export default withAuthenticator(App, { includeGreetings: true });
+###
+`import { withAuthenticator } from "aws-amplify-react";`
+`export default withAuthenticator(App, { includeGreetings: true });`
 
 
 amplify add api
