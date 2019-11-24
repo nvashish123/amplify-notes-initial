@@ -105,7 +105,7 @@ const updatedNotes = [newNote, ...notes];
 this.setState({ notes: updatedNotes, Note: "" });
 ```
 
-Add new method
+Add new method -
 
 ###
 
@@ -121,7 +121,7 @@ Now, you should be able to add and see notes form the UI, coming form the AppSyn
 
 
 
-Add authorization
+Add authorization - 
 
 currently,there is no authorization on the note records. All users see the records regardless of who created it. Lets add authorization so that only the user who created a note can see it. Create a new user to test it.
 
