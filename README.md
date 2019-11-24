@@ -22,10 +22,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Edit index.js:
 
-import Amplify from "aws-amplify";
-import aws_exports from "./aws-exports";
+###
+`import Amplify from "aws-amplify";`
+`import aws_exports from "./aws-exports";`
 
-Amplify.configure(aws_exports);
+`Amplify.configure(aws_exports);`
 
 
 Edit App.js:
