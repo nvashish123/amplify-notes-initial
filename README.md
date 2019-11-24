@@ -5,11 +5,103 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 - git clone this repo to your local environment
-- cd into the folder and do npm i -g create-react-app @aws-amplify/cli
+- cd into the folder
 - npm install
+- npm start (this will run plain react app, with no Amplify at all)
+- npm i aws-amplify aws-amplify-react
+- npm i -g @aws-amplify/cli
 - amplify configure : this command will configure amplify on your environment, and its a one-time setup, unless you want to change some configuration
 - Follow the instructions to understand the changes being made in this starter app
+- amplify init
+- amplify add auth (choose user name, and everything else default)
+- amplify push
+
 - Find the final app with all the changes here - https://github.com/nvashish123/amplify-notes-final
+
+## Code changes for the lab
+
+Edit index.js:
+
+import Amplify from "aws-amplify";
+import aws_exports from "./aws-exports";
+
+Amplify.configure(aws_exports);
+
+
+Edit App.js:
+
+import { withAuthenticator } from "aws-amplify-react";
+export default withAuthenticator(App, { includeGreetings: true });
+
+
+amplify add api
+Choose first option with notes todo 
+Update schema.grapgql with the following : 
+
+type Note @model {
+id: ID!
+note: String!
+}
+
+
+
+amplify push
+
+Once finished, explore the local folder structure and show all the auto-generated code
+Walk through the AppSync console and show the GraphQL editor etc.
+
+Run a mutation from the console - 
+
+mutation {
+  createNote(input: {
+    note: "Hello Atl"
+  }) {
+    id
+    note
+  }
+}
+
+Edit App.js - 
+
+import { API, graphqlOperation } from "aws-amplify";
+import { createNote } from "./graphql/mutations";
+import { listNotes } from "./graphql/queries";
+
+Add to handleAddNote method - 
+
+const result = await API.graphql(graphqlOperation(createNote, { input }));
+const newNote = result.data.createNote;
+const updatedNotes = [newNote, ...notes];
+this.setState({ notes: updatedNotes, Note: "" });
+
+
+Add new method
+
+async componentDidMount() {
+const result = await API.graphql(graphqlOperation(listNotes));
+this.setState({ notes: result.data.listNotes.items });
+}
+
+
+Now, you should be able to add and see notes form the UI, coming form the AppSync API. DynamoDB table should have all the notes. 
+
+amplify add hosting
+amplify publish
+
+Now, your react app is running in S3, and not locally. 
+
+Add authorization
+
+Update the schema.graphql file to add authorization to the model : 
+
+type Note @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  note: String!
+}
+
+amplify update api
+amplify push
+
 
 ## Available Scripts
 
