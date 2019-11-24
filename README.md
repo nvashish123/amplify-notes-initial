@@ -34,17 +34,21 @@ Edit App.js:
 
 ###
 `import { withAuthenticator } from "aws-amplify-react";`
+
 `export default withAuthenticator(App, { includeGreetings: true });`
 
+###
+`amplify add api`
 
-amplify add api
-Choose first option with notes todo 
+(Choose first option with notes todo)
+
 Update schema.grapgql with the following : 
 
-type Note @model {
-id: ID!
-note: String!
-}
+###
+`type Note @model {`
+`id: ID!`
+`note: String!`
+`}`
 
 
 
