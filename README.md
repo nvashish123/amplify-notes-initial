@@ -51,14 +51,16 @@ Update schema.grapgql with the following :
 `}`
 
 
-
-amplify push
+###
+`amplify push`
 
 Once finished, explore the local folder structure and show all the auto-generated code
 Walk through the AppSync console and show the GraphQL editor etc.
 
 Run a mutation from the console - 
 
+###
+```
 mutation {
   createNote(input: {
     note: "Hello Atl"
@@ -67,6 +69,7 @@ mutation {
     note
   }
 }
+```
 
 Edit App.js - 
 
