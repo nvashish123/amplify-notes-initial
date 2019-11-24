@@ -23,36 +23,49 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Edit index.js:
 
 ###
-`import Amplify from "aws-amplify";`
 
-`import aws_exports from "./aws-exports";`
+```
+import Amplify from "aws-amplify";
 
-`Amplify.configure(aws_exports);`
+import aws_exports from "./aws-exports";
+
+Amplify.configure(aws_exports);
+```
 
 
 Edit App.js:
 
 ###
-`import { withAuthenticator } from "aws-amplify-react";`
 
-`export default withAuthenticator(App, { includeGreetings: true });`
+```
+import { withAuthenticator } from "aws-amplify-react";
+
+export default withAuthenticator(App, { includeGreetings: true });
+```
 
 ###
-`amplify add api`
+
+```amplify add api```
 
 (Choose first option with notes todo)
 
 Update schema.grapgql with the following : 
 
 ###
-`type Note @model {`
-`id: ID!`
-`note: String!`
-`}`
+
+```
+type Note @model {
+id: ID!
+note: String!
+}
+```
 
 
 ###
-`amplify push`
+
+```
+amplify push
+```
 
 Once finished, explore the local folder structure and show all the auto-generated code
 Walk through the AppSync console and show the GraphQL editor etc.
@@ -73,45 +86,58 @@ mutation {
 
 Edit App.js - 
 
+###
+```
+
 import { API, graphqlOperation } from "aws-amplify";
 import { createNote } from "./graphql/mutations";
 import { listNotes } from "./graphql/queries";
 
+```
+
 Add to handleAddNote method - 
 
+###
+```
 const result = await API.graphql(graphqlOperation(createNote, { input }));
 const newNote = result.data.createNote;
 const updatedNotes = [newNote, ...notes];
 this.setState({ notes: updatedNotes, Note: "" });
-
+```
 
 Add new method
 
+###
+
+```
 async componentDidMount() {
 const result = await API.graphql(graphqlOperation(listNotes));
 this.setState({ notes: result.data.listNotes.items });
 }
+```
 
 
 Now, you should be able to add and see notes form the UI, coming form the AppSync API. DynamoDB table should have all the notes. 
 
-amplify add hosting
-amplify publish
 
-Now, your react app is running in S3, and not locally. 
 
 Add authorization
 
 Update the schema.graphql file to add authorization to the model : 
 
+###
+```
 type Note @model @auth(rules: [{ allow: owner }]) {
   id: ID!
   note: String!
 }
+```
 
+###
+```
 amplify update api
 amplify push
-
+```
 
 ## Available Scripts
 
