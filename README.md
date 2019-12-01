@@ -43,6 +43,8 @@ import { withAuthenticator } from "aws-amplify-react";
 export default withAuthenticator(App, { includeGreetings: true });
 ```
 
+Checkout the app, it should have sign in, sign up functionality added now.
+
 ###
 
 ```amplify add api```
@@ -70,7 +72,7 @@ amplify push
 Once finished, explore the local folder structure and show all the auto-generated code
 Walk through the AppSync console and show the GraphQL editor etc.
 
-Run a mutation from the console - 
+Run a mutation from the console, to create a note - 
 
 ###
 ```
@@ -117,7 +119,7 @@ this.setState({ notes: result.data.listNotes.items });
 ```
 
 
-Now, you should be able to add and see notes form the UI, coming form the AppSync API. DynamoDB table should have all the notes. 
+Now, you should be able to add and see notes from the UI, coming from the AppSync API. DynamoDB table should have all the notes. 
 
 
 
@@ -140,6 +142,7 @@ type Note @model @auth(rules: [{ allow: owner }]) {
 amplify update api
 amplify push
 ```
+now each note should have an owner field associated, and a logged in user will only see the noptes created by that user, and none of other user's notes
 
 ## Available Scripts
 
