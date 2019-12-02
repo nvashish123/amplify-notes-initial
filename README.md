@@ -16,7 +16,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - amplify add auth (choose user name, and everything else default)
 - amplify push
 
-- Find the final app with all the changes here - https://github.com/nvashish123/amplify-notes-final
+
 
 ## Code changes for the lab
 
