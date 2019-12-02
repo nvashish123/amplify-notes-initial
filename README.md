@@ -144,6 +144,9 @@ amplify push
 ```
 now each note should have an owner field associated, and a logged in user will only see the noptes created by that user, and none of other user's notes
 
+=========== end of builder session hands on ======
+
+
 ## Available Scripts
 
 In the project directory, you can run:
