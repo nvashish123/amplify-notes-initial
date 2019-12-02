@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Pre-requisites for the builders session :
+
+- You must be able to log into your AWS account with Admin role.
+
+- You can fork this repo and work off of that, or just clone it one time,
+we will not be commiting any code to the repo for this session, so either way should be fine.
 
 ## Steps
 
