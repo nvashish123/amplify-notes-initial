@@ -9,6 +9,10 @@ we will not be commiting any code to the repo for this session, so either way sh
 
 ## Steps
 
+Note : You can use any IDE of your choice for the hands on, as long as you have aws cli setup on your machine.
+Otherwise, you can use AWS Cloud9 IDE, which comes with aws cli pre-installed. If you do not have a Cloud9 workspace, create one and open that IDE in your browser.
+
+In you Cloud9 IDE, open a terminal window and do the following:
 
 - git clone this repo to your local environment
 - cd into the folder
